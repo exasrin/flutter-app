@@ -10,31 +10,18 @@ class MainPage extends StatelessWidget {
           title: const Text("Aplikasi Pertamaku"),
           backgroundColor: Colors.blue,
         ),
-        body: Center(
-          child: Container(
-              width: 100,
+        body: const Center(
+            child: Column(
+          children: [
+            SizedBox(
+                width: 150,
+                child: Text("Hello my name is alfaathir rasyid sulaiman")),
+            SizedBox(
               height: 100,
-              decoration: BoxDecoration(
-                  // color: Colors.red,
-                  border: Border.all(color: Colors.black, width: 3),
-                  // borderRadius: const BorderRadius.only(
-                  //     topLeft: Radius.circular(20),
-                  //     bottomRight: Radius.circular(20)),
-                  // gradient: const LinearGradient(
-                  //     colors: [Colors.red, Colors.yellow],
-                  //     begin: Alignment.topLeft,
-                  //     end: Alignment.bottomRight)),
-                  image: const DecorationImage(
-                      image: NetworkImage("https://picsum.photos/200/300"),
-                      fit: BoxFit.cover),
-                  boxShadow: const [
-                    BoxShadow(
-                        color: Colors.black45,
-                        blurRadius: 6,
-                        spreadRadius: 3,
-                        offset: Offset(2, 2))
-                  ],
-                  shape: BoxShape.circle)),
-        ));
+            ),
+            SizedBox(
+                width: 150, child: Text("Welcome alfaathir rasyid sulaiaman"))
+          ],
+        )));
   }
 }
