@@ -9,51 +9,41 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.grey.shade200,
-        title: const Center(
-            child: Text(
-          "Stack Demo",
-          style: TextStyle(fontWeight: FontWeight.bold),
-        )),
-      ),
-      body: Container(
-        height: 300,
-        width: 300,
-        color: Colors.yellow.shade200,
-        child: Stack(
-          alignment: Alignment.topRight,
-          children: [
-            Container(
-              color: Colors.grey.withOpacity(0.3),
-              child: Container(
-                margin: const EdgeInsets.all(0),
-                height: 100,
-                width: 100,
-                color: Colors.red,
-              ),
-            ),
-            Container(
-              color: Colors.grey.withOpacity(0.3),
-              child: Container(
-                margin: const EdgeInsets.all(20),
-                height: 100,
-                width: 100,
-                color: Colors.green,
-              ),
-            ),
-            Container(
-              color: Colors.grey.withOpacity(0.3),
-              child: Container(
-                margin: const EdgeInsets.all(40),
-                height: 100,
-                width: 100,
-                color: Colors.blue,
-              ),
-            ),
-          ],
+        appBar: AppBar(
+          backgroundColor: Colors.grey.shade200,
+          title: const Center(
+              child: Text(
+            "Wrap Demo",
+            style: TextStyle(fontWeight: FontWeight.bold),
+          )),
         ),
-      ),
-    );
+        body: Container(
+          height: double.infinity,
+          width: double.infinity,
+          color: Colors.grey.shade200,
+          child: Wrap(
+              alignment: WrapAlignment.center, //secara horizontal
+              runAlignment: WrapAlignment.end, //secara vertical
+              crossAxisAlignment:
+                  WrapCrossAlignment.center, //di dalam baris wrap
+              verticalDirection: VerticalDirection.up, // arah mulainya
+              // direction: Axis.vertical,
+              spacing: 10,
+              runSpacing: 20,
+              children: List.generate(
+                  8,
+                  (index) => Container(
+                        width: index % 2 == 0 ? 150 : 70,
+                        height: index % 2 == 0 ? 150 : 70,
+                        color: index % 2 == 0 ? Colors.red : Colors.blue,
+                        child: Center(
+                          child: Text(
+                            index.toString(),
+                            style: const TextStyle(
+                                fontSize: 30, color: Colors.white),
+                          ),
+                        ),
+                      ))),
+        ));
   }
 }
