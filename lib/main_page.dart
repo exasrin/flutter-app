@@ -1,29 +1,58 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class MainPage extends StatelessWidget {
+class MainPage extends StatefulWidget {
   const MainPage({super.key});
 
   @override
+  State<MainPage> createState() => _MainPageState();
+}
+
+class _MainPageState extends State<MainPage> {
+  int number = 0;
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text("Aplikasi Pertamaku"),
-          backgroundColor: Colors.blue,
-        ),
-        body: Center(
-          child: SizedBox(
-            width: 200,
-            child: Text(
-              "Hello My Name Is Alffathir Rasyid Sulaiaman",
-              style: GoogleFonts.montserrat(
-                textStyle: Theme.of(context).textTheme.displayLarge,
-                fontSize: 48,
-                fontWeight: FontWeight.w700,
-                fontStyle: FontStyle.italic,
-              ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              '$number',
+              style: GoogleFonts.poppins(fontSize: 40),
             ),
-          ),
-        ));
+            const SizedBox(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      number++;
+                    });
+                  },
+                  child: const Text("+"),
+                ),
+                const SizedBox(
+                  width: 20,
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      number--;
+                    });
+                  },
+                  child: const Text("-"),
+                )
+              ],
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
