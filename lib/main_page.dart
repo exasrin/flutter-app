@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -43,7 +41,18 @@ class _MainPageState extends State<MainPage> {
                 ElevatedButton(
                   onPressed: () {
                     setState(() {
-                      number--;
+                      number = 0;
+                    });
+                  },
+                  child: const Text("Reset"),
+                ),
+                const SizedBox(
+                  width: 20,
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      number <= 0 ? number = 0 : number--;
                     });
                   },
                   child: const Text("-"),
