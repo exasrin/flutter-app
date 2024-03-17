@@ -1,10 +1,15 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:flutter/services.dart';
 
-class MainPage extends StatelessWidget {
+class MainPage extends StatefulWidget {
   const MainPage({super.key});
 
+  @override
+  State<MainPage> createState() => _MainPageState();
+}
+
+class _MainPageState extends State<MainPage> {
+  TextEditingController textEditingController = TextEditingController(text: "");
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -12,17 +17,34 @@ class MainPage extends StatelessWidget {
           backgroundColor: Colors.grey.shade200,
           title: const Center(
               child: Text(
-            "Align Demo",
+            "Textfield Demo",
             style: TextStyle(fontWeight: FontWeight.bold),
           )),
         ),
-        body: Center(
-          child: Icon(
-            MdiIcons.googleDownasaur,
-            size: 75,
-            color: Colors.orange,
-            shadows: const [
-              Shadow(blurRadius: 8, offset: Offset(3, 3), color: Colors.black54)
+        body: Padding(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            children: [
+              TextField(
+                // obscureText: true,
+                // obscuringCharacter: "*",
+                controller: textEditingController,
+                style: const TextStyle(fontWeight: FontWeight.bold),
+                textAlign: TextAlign.center,
+                cursorColor: Colors.red,
+                inputFormatters: [
+                  TextInputFormatter.withFunction((oldValue, newValue) =>
+                      TextEditingValue(text: newValue.text.toUpperCase()))
+                ],
+                onChanged: (value) => setState(() {}),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Text(
+                textEditingController.text,
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              )
             ],
           ),
         ));
