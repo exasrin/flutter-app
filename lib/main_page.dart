@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});
@@ -15,24 +16,15 @@ class MainPage extends StatelessWidget {
             style: TextStyle(fontWeight: FontWeight.bold),
           )),
         ),
-        body: const Row(
-          children: [
-            Padding(
-                padding: EdgeInsets.fromLTRB(20, 20, 10, 0),
-                child: Text("Lorem")),
-            Padding(
-                padding: EdgeInsets.fromLTRB(20, 20, 10, 0),
-                child: Text("Ipsum")),
-            Padding(
-                padding: EdgeInsets.fromLTRB(20, 20, 10, 0),
-                child: Text("Dolar")),
-            Padding(
-                padding: EdgeInsets.fromLTRB(20, 20, 10, 0),
-                child: Text("Sit")),
-            Padding(
-                padding: EdgeInsets.fromLTRB(20, 20, 10, 0),
-                child: Text("Amet"))
-          ],
+        body: Center(
+          child: Icon(
+            MdiIcons.googleDownasaur,
+            size: 75,
+            color: Colors.orange,
+            shadows: const [
+              Shadow(blurRadius: 8, offset: Offset(3, 3), color: Colors.black54)
+            ],
+          ),
         ));
   }
 }
